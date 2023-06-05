@@ -130,10 +130,19 @@ def iniciar_maquina():
     global rotores, reflector, num_to_letra, letra_to_num
 
     rotores = generar_rotores()
+
     num_to_letra = generar_diccionario_basico()
+
+    """
+    Este código crea un diccionario llamado letra_to_num que asigna a cada letra
+    su correspondiente valor numérico. Utiliza el diccionario num_to_letra, el 
+    cual contiene las letras como claves y los números como valores, para intercambiar 
+    las claves y valores.
+    """
     letra_to_num = {v: k for k, v in num_to_letra.items()}
 
-    if input(str("Enter para continuar  ")) == '1':
+    print(" Ingrese '1' para configurar rotores")
+    if input(str("Enter para usar la configuracion predeterminada")) == '1':
         configurar_rotores()
 #####
     a_encriptar = input(str("Ingrese el texto:"))
