@@ -1,6 +1,3 @@
-import math, time
-
-
 def generar_rotores():
     """
     Rotor mas rapido --> derecha
@@ -10,7 +7,7 @@ def generar_rotores():
      R2 = izquierdo LENT0
     """
     rotores = []
-#rotores[1][0]
+    # rotores[1][0]
     R1 = []
     R1.append([16, 23, 10, 5, 4, 11, 7, 19, 9, 13, 24, 2, 0, 1, 15, 6, 18, 20, 21, 17, 25, 12, 14, 8, 22, 3])
     R1.append([19, 6, 18, 5, 8, 0, 23, 13, 3, 16, 10, 1, 12, 2, 17, 9, 25, 14, 7, 15, 21, 11, 24, 4, 20, 22])
@@ -110,7 +107,7 @@ def girar_rotor(a):
     global rotores
     primer_vuelta = rotores[a][0]
     primer_vuelta = primer_vuelta[-1:] + primer_vuelta[:-1]
-# 123123123
+    # 123123123
     segunda_vuelta = rotores[a][1]
     segunda_vuelta = segunda_vuelta[-1:] + segunda_vuelta[:-1]
 
@@ -122,7 +119,6 @@ def girar_rotor(a):
 def encriptar_texto(texto):
     rotores = generar_rotores()
     index = 12
-
 
     TextoFinal = ""
     for x in texto:
@@ -138,16 +134,6 @@ def encriptar_texto(texto):
         if medio == 1:
             # Girar lento rotor
             rotores[2] = girar_rotor(rotores[2][0])
-
-        """
-        rapido=int(rotores[0][0][index])
-        medio=int(rotores[1][0][index])
-        lento=int(rotores[2][0][index])
-
-        print(rapido)
-        print(medio)
-        print(lento)
-        """
 
 
 def generar_diccionario_basico():
@@ -178,7 +164,6 @@ def entreada_rotores(numero):
 
     final = A6
     return final
-
 
 
 def salida_rotores(numero):
@@ -255,7 +240,7 @@ def iniciar_maquina():
         configurar_rotores()
 
     a_encriptar = input(str("Ingrese el texto:"))
-    # w = num_to_letra[ingresar_letra(a_encriptar)]
+    #Eliminamos espacios
     a_encriptar = a_encriptar.replace(" ", "")
     texto = ''
 
