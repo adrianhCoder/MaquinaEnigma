@@ -137,7 +137,6 @@ def encriptar_texto(texto):
 
 
 def generar_diccionario_basico():
-    numeros = ''
     letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     dic = {}
     for x in range(1, len(letras) + 1):
@@ -152,8 +151,6 @@ def entreada_rotores(numero):
     a = numero
     A1 = rotores[0][0].index(a)
     A2 = rotores[0][1].index(A1)
-    # print(A2)
-
     # Segundo Rotor
     A3 = rotores[1][0].index(A2)
     A4 = rotores[1][1].index(A3)
