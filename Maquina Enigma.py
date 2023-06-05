@@ -46,7 +46,7 @@ def generar_diccionario_basico():
     return dic
 
 
-def entreada_rotores(numero):
+def entrada_rotores(numero):
     global rotores
 
     # Primer Rotor
@@ -104,7 +104,7 @@ def ingresar_letra(n):
         girar_rotor(3)
 
         # Ya casi acabamos :)))
-    Entrada = entreada_rotores(letra_en_numero)
+    Entrada = entrada_rotores(letra_en_numero)
     Espejo = letra_to_num[espejo_reflector(num_to_letra[Entrada].lower()).upper()]
     Salida = salida_rotores(Espejo)
     return Salida
