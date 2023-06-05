@@ -127,10 +127,7 @@ def configurar_rotores():
 
 
 def iniciar_maquina():
-    global rotores
-    global reflector
-    global num_to_letra
-    global letra_to_num
+    global rotores, reflector, num_to_letra, letra_to_num
 
     rotores = generar_rotores()
     num_to_letra = generar_diccionario_basico()
