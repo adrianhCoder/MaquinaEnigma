@@ -22,86 +22,8 @@ def generar_rotores():
     rotores.append(R2)
     rotores.append(R3)
 
-    """
-    print(R1)
-    print("\n")
-    print("Rotoress")
-    eje = "------------------------------------------------------------+----------------------------------------------------------------------------"
-    print(eje)
-    print(eje)
-    print(eje)
-    for x in rotores:
-        print(x)
-    print("\n")
-    """
+
     return rotores
-
-
-def introdusca_codigos_rotores():
-    print("Introdusca los codigos de descifrado , son tres")
-    print("A1 -A3 Comenzand de izquierda a derecha")
-    print("Dos numeros como maximo")
-    Final = []
-    while len(Final) < 3:
-        A1 = int(input("Introdusca el codigo A%i :  " % len(Final)))
-        if A1 >= 24 or A1 < 1:
-            print("Numero no disponible")
-            print("\n")
-        else:
-            Final.append(A1)
-    return Final
-
-
-def encryptacion_militar():
-    abecedario = "abcdefghijqlmnñopqrstuvwxyz"
-    abecedario = abecedario.upper()
-    Abc = []
-    for x in abecedario:
-        Abc.append(x)
-    print("\n")
-    print("En esta zona se agregara la encriptacion militar")
-    print("Podras conectar 5 pares de letras")
-    print("Ejemplo    AB ,  OK  ,  YU   ,QW  se imprimiran tus letras enlazadas")
-    print("\n")
-
-    Pares = []
-    while len(Pares) < 5:
-        print("Letras disponibles: %s " % Abc)
-        par = str(input("Ingresa las dos letras del par %s:    " % (len(Pares) + 1)))
-        print("\n")
-
-        validar = 0
-        for x in par:
-            if x in Abc and par[0] != par[1]:
-                validar += 1
-        if validar == 2:
-            for x in par:
-                Abc.remove(x.upper())
-            Pares.append(par)
-        else:
-            print("Error-------------------")
-
-    print(Pares)
-    return Pares
-
-
-def swapPositions(list, pos1, pos2):
-    list[pos1], list[pos2] = list[pos2], list[pos1]
-    return list
-
-
-def nuevo_abecedario():
-    normal = 'ABCDEFGHIJQLMNÑOPQRSTUVWXYZ'
-    Antigua = list(normal)
-    remplazos = encryptacion_militar()
-    normal = list(normal)
-
-    for x in remplazos:
-        valores = list(x)
-        normal = swapPositions(normal, normal.index(valores[0]), normal.index(valores[1]))
-    print(Antigua)
-    print(normal)
-
 
 def girar_rotor(a):
     global rotores
@@ -114,26 +36,6 @@ def girar_rotor(a):
     rotores[a][0] = primer_vuelta
     rotores[a][1] = segunda_vuelta
     return True
-
-
-def encriptar_texto(texto):
-    rotores = generar_rotores()
-    index = 12
-
-    TextoFinal = ""
-    for x in texto:
-        rotores[0] = girar_rotor(rotores[0][0])
-
-        rapido = int(rotores[0][0][index])
-        medio = int(rotores[1][0][index])
-        lento = int(rotores[2][0][index])
-
-        if rapido == 1:
-            # Girar medio rotor
-            rotores[1] = girar_rotor(rotores[1][0])
-        if medio == 1:
-            # Girar lento rotor
-            rotores[2] = girar_rotor(rotores[2][0])
 
 
 def generar_diccionario_basico():
