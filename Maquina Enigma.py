@@ -133,9 +133,9 @@ def iniciar_maquina():
     num_to_letra = generar_diccionario_basico()
     letra_to_num = {v: k for k, v in num_to_letra.items()}
 
-    if input(str("Ingrese 1 para configurar rotores:   ")) == '1':
+    if input(str("Enter para continuar  ")) == '1':
         configurar_rotores()
-
+#####
     a_encriptar = input(str("Ingrese el texto:"))
 
     #Eliminamos espacios
