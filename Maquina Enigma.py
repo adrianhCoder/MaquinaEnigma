@@ -144,7 +144,7 @@ def iniciar_maquina():
     print(" Ingrese '1' para configurar rotores")
     if input(str("Enter para usar la configuracion predeterminada")) == '1':
         configurar_rotores()
-#####
+
     a_encriptar = input(str("Ingrese el texto:"))
 
     #Eliminamos espacios
