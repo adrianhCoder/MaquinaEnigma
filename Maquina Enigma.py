@@ -229,6 +229,7 @@ def iniciar_maquina():
     global reflector
     global num_to_letra
     global letra_to_num
+
     rotores = generar_rotores()
     num_to_letra = generar_diccionario_basico()
     letra_to_num = {v: k for k, v in num_to_letra.items()}
@@ -237,6 +238,7 @@ def iniciar_maquina():
         configurar_rotores()
 
     a_encriptar = input(str("Ingrese el texto:"))
+
     #Eliminamos espacios
     a_encriptar = a_encriptar.replace(" ", "")
     texto = ''
@@ -244,6 +246,7 @@ def iniciar_maquina():
     for x in a_encriptar:
         w = num_to_letra[ingresar_letra(x)]
         texto += w
+
     print(texto)
 
 
