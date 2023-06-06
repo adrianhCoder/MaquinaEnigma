@@ -1,0 +1,6 @@
+Integracion de la maquina enigma externamente
+
+Si se quiere configurar los rotores. Se necesitas los 3 numeros
+# Ejemplo  12#12#8
+De no ser el caso simplemente se necesita el texto a encryptar/desencriptar
+HolaGente

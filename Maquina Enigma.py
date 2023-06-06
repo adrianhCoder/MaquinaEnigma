@@ -25,33 +25,33 @@ def generar_rotores():
 
     return rotores
 
-def girar_rotor(a):
+def girar_rotor(indice_rotor_a_girar):
     global rotores
-    primer_vuelta = rotores[a][0]
+    primer_vuelta = rotores[indice_rotor_a_girar][0]
     primer_vuelta = primer_vuelta[-1:] + primer_vuelta[:-1]
     # 123123123
-    segunda_vuelta = rotores[a][1]
+    segunda_vuelta = rotores[indice_rotor_a_girar][1]
     segunda_vuelta = segunda_vuelta[-1:] + segunda_vuelta[:-1]
 
-    rotores[a][0] = primer_vuelta
-    rotores[a][1] = segunda_vuelta
+    rotores[indice_rotor_a_girar][0] = primer_vuelta
+    rotores[indice_rotor_a_girar][1] = segunda_vuelta
     return True
 
-
-def generar_diccionario_basico():
+def generar_diccionario_letra_a_numero():
     letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    dic = {}
+    diccionario = {}
     for x in range(1, len(letras) + 1):
-        dic[x - 1] = letras[x - 1]
-    return dic
+        diccionario[x - 1] = letras[x - 1]
+    return diccionario
 
-
-def entrada_rotores(numero):
+"""
+Aqui la letra pasara por todos los rotores
+"""
+def entrada_rotores(letra_en_numero):
     global rotores
 
     # Primer Rotor
-    a = numero
-    A1 = rotores[0][0].index(a)
+    A1 = rotores[0][0].index(letra_en_numero)
     A2 = rotores[0][1].index(A1)
     # Segundo Rotor
     A3 = rotores[1][0].index(A2)
@@ -63,8 +63,14 @@ def entrada_rotores(numero):
 
     final = A6
     return final
+#Aqui la letra rebota en el sepejo reflector
+def espejo_reflector(letra):
+    cleartxt = letra
+    abc = "abcdefghijklmnopqrstuvwxyz"
+    secret = "".join([abc[(abc.find(c) + 13) % 26] for c in cleartxt])
+    return secret
 
-
+#aqui la letra regresa hasta dar el resultado final
 def salida_rotores(numero):
     global rotores
 
@@ -80,11 +86,6 @@ def salida_rotores(numero):
     return G6
 
 
-def espejo_reflector(letra):
-    cleartxt = letra
-    abc = "abcdefghijklmnopqrstuvwxyz"
-    secret = "".join([abc[(abc.find(c) + 13) % 26] for c in cleartxt])
-    return secret
 
 
 def ingresar_letra(n):
@@ -131,7 +132,7 @@ def iniciar_maquina():
 
     rotores = generar_rotores()
 
-    num_to_letra = generar_diccionario_basico()
+    num_to_letra = generar_diccionario_letra_a_numero()
 
     """
     Este código crea un diccionario llamado letra_to_num que asigna a cada letra
@@ -145,14 +146,14 @@ def iniciar_maquina():
     if input(str("Enter para usar la configuracion predeterminada")) == '1':
         configurar_rotores()
 
-    a_encriptar = input(str("Ingrese el texto:"))
+    texto_a_encriptar = input(str("Ingrese el texto:"))
 
     #Eliminamos espacios
-    a_encriptar = a_encriptar.replace(" ", "")
+    texto_a_encriptar = texto_a_encriptar.replace(" ", "")
     texto = ''
 
-    for x in a_encriptar:
-        w = num_to_letra[ingresar_letra(x)]
+    for letra in texto_a_encriptar:
+        w = num_to_letra[ingresar_letra(letra)]
         texto += w
 
     print(texto)
