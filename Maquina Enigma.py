@@ -4,6 +4,38 @@ num_to_letra = {}
 letra_to_num = {}
 
 
+def iniciar_maquina():
+    global rotores, reflector, num_to_letra, letra_to_num
+
+    rotores = generar_rotores()
+
+    num_to_letra = generar_diccionario_letra_a_numero()
+
+    """
+    Este código crea un diccionario llamado letra_to_num que asigna a cada letra
+    su correspondiente valor numérico. Utiliza el diccionario num_to_letra, el 
+    cual contiene las letras como claves y los números como valores, para intercambiar 
+    las claves y valores.
+    """
+    letra_to_num = {v: k for k, v in num_to_letra.items()}
+
+    print(" Ingrese '1' para configurar rotores")
+    if input(str("Enter para usar la configuracion predeterminada")) == '1':
+        configurar_rotores()
+
+    texto_a_encriptar = input(str("Ingrese el texto:"))
+
+    # Eliminamos espacios
+    texto_a_encriptar = texto_a_encriptar.replace(" ", "")
+    texto = ''
+
+    for letra in texto_a_encriptar:
+        w = num_to_letra[ingresar_letra(letra)]
+        texto += w
+
+    print(texto)
+
+
 def generar_rotores():
     """
     Rotor mas rapido --> derecha
@@ -129,38 +161,6 @@ def configurar_rotores():
 
     print("Configurados")
     print("\n")
-
-
-def iniciar_maquina():
-    global rotores, reflector, num_to_letra, letra_to_num
-
-    rotores = generar_rotores()
-
-    num_to_letra = generar_diccionario_letra_a_numero()
-
-    """
-    Este código crea un diccionario llamado letra_to_num que asigna a cada letra
-    su correspondiente valor numérico. Utiliza el diccionario num_to_letra, el 
-    cual contiene las letras como claves y los números como valores, para intercambiar 
-    las claves y valores.
-    """
-    letra_to_num = {v: k for k, v in num_to_letra.items()}
-
-    print(" Ingrese '1' para configurar rotores")
-    if input(str("Enter para usar la configuracion predeterminada")) == '1':
-        configurar_rotores()
-
-    texto_a_encriptar = input(str("Ingrese el texto:"))
-
-    # Eliminamos espacios
-    texto_a_encriptar = texto_a_encriptar.replace(" ", "")
-    texto = ''
-
-    for letra in texto_a_encriptar:
-        w = num_to_letra[ingresar_letra(letra)]
-        texto += w
-
-    print(texto)
 
 
 iniciar_maquina()
