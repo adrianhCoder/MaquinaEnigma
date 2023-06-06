@@ -1,3 +1,9 @@
+rotores = []
+reflector = None
+num_to_letra = {}
+letra_to_num = {}
+
+
 def generar_rotores():
     """
     Rotor mas rapido --> derecha
@@ -13,12 +19,9 @@ def generar_rotores():
     r3 = [[25, 0, 17, 10, 1, 12, 16, 11, 15, 9, 24, 2, 18, 21, 19, 7, 5, 3, 8, 6, 23, 22, 13, 14, 4, 20],
           [7, 16, 1, 9, 23, 5, 8, 11, 18, 15, 21, 6, 22, 10, 12, 25, 0, 19, 2, 14, 20, 17, 13, 4, 24, 3]]
 
-    rotores = []
-    rotores.append(r1)
-    rotores.append(r2)
-    rotores.append(r3)
+    rotores_ = [r1, r2, r3]
 
-    return rotores
+    return rotores_
 
 
 def girar_rotor(indice_rotor_a_girar):
