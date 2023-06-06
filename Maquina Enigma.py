@@ -5,6 +5,21 @@ letra_to_num = {}
 
 
 def iniciar_maquina():
+    """
+  Esta función inicia la máquina Enigma para encriptar el texto proporcionado.
+  Recibe como parámetro el texto a encriptar.
+
+  Y configuracion de rotores si se quiere personalizar, pues no es obligatorio
+  Ejemplo 14,12,10 esto para tener una encriptacion personalizada
+
+  Inputs:
+      texto_a_encriptar (str): El texto que se va a encriptar.
+      configuracion_de_rotores: La configuracion de rotores que se desea usar [10,11,12], en caso
+      de que se quiera confugurar , si no , se puede usar configuracion default
+
+  Returns:
+      Texto procesado (str)
+  """
     global rotores, reflector, num_to_letra, letra_to_num
 
     rotores = generar_rotores()
@@ -20,7 +35,7 @@ def iniciar_maquina():
     letra_to_num = {v: k for k, v in num_to_letra.items()}
 
     print(" Ingrese '1' para configurar rotores")
-    if input(str("Enter para usar la configuracion predeterminada")) == '1':
+    if input(str("Enter para usar la configuracion predeterminada: ")) == '1':
         configurar_rotores()
 
     texto_a_encriptar = input(str("Ingrese el texto:"))
@@ -33,7 +48,7 @@ def iniciar_maquina():
         w = num_to_letra[ingresar_letra(letra)]
         texto += w
 
-    print(texto)
+    return texto
 
 
 def generar_rotores():
@@ -163,6 +178,4 @@ def configurar_rotores():
     print("\n")
 
 
-iniciar_maquina()
-
-print("Finalizado")
+print(iniciar_maquina())  # retorna la palabra procesada
