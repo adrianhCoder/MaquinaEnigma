@@ -10,7 +10,7 @@ def iniciar_maquina():
   Recibe como parámetro el texto a encriptar.
 
   Y configuracion de rotores si se quiere personalizar, pues no es obligatorio
-  Ejemplo 14,12,10 esto para tener una encriptacion personalizada
+  Ejemplo 14,12,10 esto para tener una encriptacion personalizada.
 
   Inputs:
       texto_a_encriptar (str): El texto que se va a encriptar.
